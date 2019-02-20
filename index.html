@@ -9,24 +9,38 @@
 </head>
 <body>
   <header>
-
+    <h1>Crypto Game</h1>
+    <p>Solve the cipher</p>
   </header>
 
   <main>
-    <p class="encryptedText"></p>
     
-    <form action="#">
+    <form action="#" class="userInputApiForm">
+      <p class="encryptedText"></p>
       
       <label for="userInputApi" aria-label="Input Text to Encrypt"></label>
       <input type="text" id="userInputApi" name="userInputApi" placeholder="Input Text to Encrypt">
-
       
-
+      <button>Submit to Encrypter</button>
+    
+      <ul class="apiOutput">
+        <!-- ENTER API OUTPUTS DYNAMICALLY -->
+        <!-- LATEST OUTPUT IS ON TOP OF THE LIST -->
+        <!-- MAXIMUM THREE ITEMS AT ONCE -->
+      </ul>
     </form>
+    
+    <form action="#" class="checkAnswerForm">
+      <label for="checkAnswerInput" aria-label="Check your Answer"></label>
+      <input type="text" id="checkAnswerInput" name="checkAnswerInput" placeholder="Input your answer here">
+
+      <button>Check your Answer</button>
+    </form>
+
   </main>
 
   <footer>
-    
+    <small>Copyright Crypto Team 2019</small>
   </footer>
 
   <script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='crossorigin='anonymous'></script>
