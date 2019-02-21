@@ -1,49 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="styles/style.css">
-  <title>Crypto Game</title>
-</head>
-<body>
-  <header>
-    <h1>Crypto Game</h1>
-    <p>Solve the cipher</p>
-  </header>
 
-  <main>
-    
-    <form action="#" class="userInputApiForm">
-      <p class="encryptedText"></p>
-      
-      <label for="userInputApi" aria-label="Input Text to Encrypt"></label>
-      <input type="text" id="userInputApi" name="userInputApi" placeholder="Input Text to Encrypt">
-      
-      <button>Submit to Encrypter</button>
-    
-      <ul class="apiOutput">
-        <!-- ENTER API OUTPUTS DYNAMICALLY -->
-        <!-- LATEST OUTPUT IS ON TOP OF THE LIST -->
-        <!-- MAXIMUM THREE ITEMS AT ONCE -->
-      </ul>
-    </form>
-    
-    <form action="#" class="checkAnswerForm">
-      <label for="checkAnswerInput" aria-label="Check your Answer"></label>
-      <input type="text" id="checkAnswerInput" name="checkAnswerInput" placeholder="Input your answer here">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Crypto Game</title>
+  </head>
 
-      <button>Check your Answer</button>
-    </form>
+  <body>
+    <header>
+      <h1>Crypto Game</h1>
+      <p>Solve the cipher</p>
+    </header>
 
-  </main>
+    <main>
 
-  <footer>
-    <small>Copyright Crypto Team 2019</small>
-  </footer>
+      <form action="#" class="userInputApiForm">
+        <p class="encryptedText"></p>
 
-  <script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='crossorigin='anonymous'></script>
-  <script src="scripts/script.js"></script>
-</body>
+        <label for="userInputApi" aria-label="Input Text to Encrypt"></label>
+        <input type="text" id="userInputApi" name="userInputApi" placeholder="Input Text to Encrypt">
+
+        <button>Submit to Encrypter</button>
+
+        <ul class="apiOutput">
+          <!-- ENTER API OUTPUTS DYNAMICALLY -->
+          <!-- LATEST OUTPUT IS ON TOP OF THE LIST -->
+          <!-- MAXIMUM THREE ITEMS AT ONCE -->
+        </ul>
+      </form>
+
+      <form action="#" class="checkAnswerForm">
+        <label for="checkAnswerInput" aria-label="Check your Answer"></label>
+        <input type="text" id="checkAnswerInput" name="checkAnswerInput" placeholder="Input your answer here">
+
+        <button>Check your Answer</button>
+      </form>
+
+    </main>
+
+    <footer>
+      <small>Copyright Crypto Team 2019</small>
+    </footer>
+
+    <script src='https://code.jquery.com/jquery-3.2.1.min.js'></script>
+    <script src="scripts/script.js"></script>
+  </body>
+
 </html>
