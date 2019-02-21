@@ -1,2 +1,2 @@
-# apiProject4CryptoFun
-We will create a crypto game!
+# apiProject4TriviaFun
+We will create a trivia game!
