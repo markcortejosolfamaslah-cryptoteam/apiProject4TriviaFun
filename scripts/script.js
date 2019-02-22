@@ -33,6 +33,7 @@ myApp.requestApi = () => {
 		}).then(function (response) {//we use then to make sure that we doing nothing before get the response from Api
 			myApp.createQuestionsArray(response.results)//we call the function here to avoid that it execute the function before getting response, so here because it's where we get the data
 		})
+
 	}
 }
 
@@ -48,7 +49,7 @@ myApp.createQuestionsArray = (apiResponse) => {
 	})
 
 	myApp.allQuestions = myApp.allQuestions.concat(filtered);//because we have 2 calls from API we need to concat the both to create only one array
-	console.log(myApp.allQuestions)
+
 }
 
 
@@ -62,9 +63,10 @@ myApp.getUserInput = () => {
 
 
 // solution from https://stackoverflow.com/questions/6274339/how-can-i-shuffle-an-array
-	// Array Shuffle Function (MUTATES PASSED ARRAY)
-		// shuffles the contents of an array
-		// returns the mutated array
+// Array Shuffle Function (MUTATES PASSED ARRAY)
+// shuffles the contents of an array
+// returns the mutated array
+//attention il faut eviter de l'appeler 2 fois mais comme on fait 2 calls from API because of the for loop
 myApp.shuffleArray = function (array) {
 	// for loop to iterate through array
 	for (let i = 0; i <= array.length; i++) {
