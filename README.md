@@ -99,10 +99,16 @@ startGame()
   // displays $('.sectionQuestions')
   // myApp.correctCount = 0
 
-reshuffleArray()
-  // if questionCount === 40 then
-      // shuffleArray()
-      // myApp.questionCount = 0
+displayNextQuestion()
+  // clean the class (correct/wrong)
+  // $('.questions').empty()
+  // $('.questions').html(nextQuestionString)
+
+displaySectionScore()
+  // hide $('.sectionQuestions')
+  // display $('.sectionScore')
+  // $('.scoreCount span').empty()
+  // $('.scoreCount span').text(correctCount)
 
 checkUserInput(userChoice)
   // myApp.questionCount++
@@ -114,19 +120,14 @@ checkUserInput(userChoice)
     // give negative feedback
       // apply class of wrong
 
-displayNextQuestion()
-  // clean the class (correct/wrong)
-  // $('.questions').empty()
-  // $('.questions').html(nextQuestionString)
-
 checkGameEnding()
   // if questionCount%10 === 0
       // return true
     // else 
       // return false
 
-displaySectionScore()
-  // hide $('.sectionQuestions')
-  // display $('.sectionScore')
-  // $('.scoreCount span').empty()
-  // $('.scoreCount span').text(correctCount)
+reshuffleArray()
+  // if questionCount === 40 then
+      // shuffleArray()
+      // myApp.questionCount = 0
+
