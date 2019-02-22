@@ -1,6 +1,7 @@
 const myApp = {};
 
-myApp.Url = ['https://opentdb.com/api.php?amount=32&category=18', 'https://opentdb.com/api.php?amount=15&category=19']
+// Comment out url array temporarily to work with just one set of data
+// myApp.Url = ['https://opentdb.com/api.php?amount=32&category=18&type=boolean', 'https://opentdb.com/api.php?amount=15&category=19&type=boolean']
 myApp.allQuestions = [];//l'array est global, ce qui permet de les utiliser
 
 myApp.init = function () {
@@ -23,18 +24,21 @@ $(function () {
 
 myApp.requestApi = () => {
 	let results = [];
-	for (i = 0; i < myApp.Url.length; i++) {
-		$.ajax({
-			url: myApp.Url[i],
+	
+	// for (i = 0; i < myApp.Url.length; i++) { // removed loop to limit to one AJAX call
+	// } // ending tag for loop
+		
+	$.ajax({
+			// only using one url for now for the MVP
+			url: 'https://opentdb.com/api.php?amount=32&category=18&type=boolean',
 			method: 'GET',
 			dataType: 'json',
 
-
 		}).then(function (response) {//we use then to make sure that we doing nothing before get the response from Api
 			myApp.createQuestionsArray(response.results)//we call the function here to avoid that it execute the function before getting response, so here because it's where we get the data
+			console.log(myApp.allQuestions)
 		})
 
-	}
 }
 
 
