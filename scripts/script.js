@@ -1,7 +1,7 @@
 const myApp = {};
 
 // Comment out url array temporarily to work with just one set of data
-// myApp.Url = ['https://opentdb.com/api.php?amount=32&category=18&type=boolean', 'https://opentdb.com/api.php?amount=15&category=19&type=boolean']
+myApp.Url = ['https://opentdb.com/api.php?amount=32&category=18&type=boolean', 'https://opentdb.com/api.php?amount=15&category=19&type=boolean']
 myApp.allQuestions = [];//l'array est global, ce qui permet de les utiliser
 
 myApp.init = function () {
@@ -13,8 +13,23 @@ myApp.init = function () {
 
 
 myApp.setup = function () {
-	const apiQuestions = myApp.requestApi();
+	/* const apiQuestions = myApp.requestApi(); */
+	const requestPromise = myApp.Url.map(function (a) {
+		return myApp.requestApi(a);
+
+	})
+	$.when(...requestPromise).then(function (...responses) {//we use when and then to make sure that we doing nothing before get the response from Api
+
+		responses.forEach(function (response) {
+			myApp.createQuestionsArray(response[0].results) //we call the function here to avoid that it execute the function before getting response, so here because it's where we get the data
+
+		})
+		console.log(myApp.allQuestions)
+
+	})
+
 }
+
 
 $(function () {
 	myApp.init();
@@ -22,22 +37,23 @@ $(function () {
 
 
 
-myApp.requestApi = () => {
-	let results = [];
-	
+myApp.requestApi = (url) => {
+	/* let results = []; */
+
 	// for (i = 0; i < myApp.Url.length; i++) { // removed loop to limit to one AJAX call
 	// } // ending tag for loop
-		
-	$.ajax({
-			// only using one url for now for the MVP
-			url: 'https://opentdb.com/api.php?amount=32&category=18&type=boolean',
-			method: 'GET',
-			dataType: 'json',
 
-		}).then(function (response) {//we use then to make sure that we doing nothing before get the response from Api
-			myApp.createQuestionsArray(response.results)//we call the function here to avoid that it execute the function before getting response, so here because it's where we get the data
-			console.log(myApp.allQuestions)
-		})
+	return $.ajax({
+		// only using one url for now for the MVP
+		url: url,
+		method: 'GET',
+		dataType: 'json',
+
+	});
+	/* .then(function (response) {//we use then to make sure that we doing nothing before get the response from Api
+		myApp.createQuestionsArray(response.results)//we call the function here to avoid that it execute the function before getting response, so here because it's where we get the data
+		console.log(myApp.allQuestions)
+	}) */
 
 }
 
@@ -76,14 +92,14 @@ myApp.shuffleArray = function (array) {
 	for (let i = 0; i <= array.length; i++) {
 		// create random number and store in variable
 		const randNum = Math.floor(Math.random() * (array.length + 1));
-			// // create a temporary variable to store current array element
-			// const temp = array[i];
-			// // overwrite current array element with randomized array element
-			// array[i] = array[randNum];
-			// // use temp variable to add back the old current array into the randomized array element
-			// array[randNum] = temp;
+		// // create a temporary variable to store current array element
+		// const temp = array[i];
+		// // overwrite current array element with randomized array element
+		// array[i] = array[randNum];
+		// // use temp variable to add back the old current array into the randomized array element
+		// array[randNum] = temp;
 		// use destructuring to exchange the values of the two array positions
-		[array[i],array[randNum]] = [array[randNum],array[i]];
+		[array[i], array[randNum]] = [array[randNum], array[i]];
 
 	}
 	// return mutated array
