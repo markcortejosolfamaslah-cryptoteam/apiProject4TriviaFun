@@ -76,12 +76,15 @@ myApp.shuffleArray = function (array) {
 	for (let i = 0; i <= array.length; i++) {
 		// create random number and store in variable
 		const randNum = Math.floor(Math.random() * (array.length + 1));
-		// create a temporary variable to store current array element
-		const temp = array[i];
-		// overwrite current array element with randomized array element
-		array[i] = array[randNum];
-		// use temp variable to add back the old current array into the randomized array element
-		array[randNum] = temp;
+			// // create a temporary variable to store current array element
+			// const temp = array[i];
+			// // overwrite current array element with randomized array element
+			// array[i] = array[randNum];
+			// // use temp variable to add back the old current array into the randomized array element
+			// array[randNum] = temp;
+		// use destructuring to exchange the values of the two array positions
+		[array[i],array[randNum]] = [array[randNum],array[i]];
+
 	}
 	// return mutated array
 	return array
