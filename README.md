@@ -50,29 +50,83 @@ firebase
       } -->
 
 8/ *Starting the game* on click 'Start' event listener
-    a/ hide title screen and display the play screen
+    a/ hide title screen and display the play screen **startGame()**
     b/ display the first question
         i/ create variable to store the questionCount (starts at 0) and the correctCount (starts at 0)
         ii/ use jQuery selector to target the div.questionDisplay and then display myApp.questions[count].question
         iii/ listen for on click True/False from user
-        iv/ compare user choice with myApp.questions[count].answer
+        iv/ increase questionCount by 1
+        v/ compare user choice with myApp.questions[count].answer **checkUserInput**
             if userChoice === myApp.questions[count].answer then
               give positive feedback
               increase correctCount by 1
             else
               give negative feedback
-        v/ if correct, give positive feedback, else give negative
-        vi/ increase questionCount by 1
-        vii/ if questionCount < 10, flip to next question
+        vi/ if questionCount%10 === 0, flip to next question **displayNextQuestion**
             1/ animated div.questionDisplay to show the next question (myApp.questions[count].question)
             2/ repeat steps iii/ to vii/
-        viii/ else end game 
+        vii/ else end game 
 
 9/ *Ending the game* game ends once 
-    a/ hide play screen and display end screen
+    a/ hide play screen and display end screen **startGame()**
     b/ display end game string "You got XX / 10 correct!"
         i/ use jQuery seletor to target span in end game string and display correctCount
     c/ listen for on click 'PLay again?'
-        i/ restart the game
-            1/ randomize questions array
-            2/ hide end screen and display play screen
+        i/ increase timesPlayed counter by  (call the increaseTimesPlayed function)
+        ii/ restart the game
+            1/ hide end screen and display play screen
+
+
+============CLICK EVENTS=============
+// on Start Game Button
+  //**startGame()**
+  //**displayNextQuestion()**
+
+// on True/False Button
+  //**checkUserInput(userChoice)**
+  // if **checkGameEnding()** === false
+        //**displayNextQuestion()**
+      // else **displaySectionScore()**
+
+// on Play Again Button
+  //**startGame()**
+  //**reshuffleArray()**
+
+=========FUNCTIONS TO MAKE============
+
+startGame()
+  // hides $('.playGame')
+  // displays $('.sectionQuestions')
+  // myApp.correctCount = 0
+
+reshuffleArray()
+  // if questionCount === 40 then
+      // shuffleArray()
+      // myApp.questionCount = 0
+
+checkUserInput(userChoice)
+  // myApp.questionCount++
+  // if userChoice === correct_answer
+    // myApp.correctCount++
+    // give positive feedback
+      // apply class of correct
+  // else
+    // give negative feedback
+      // apply class of wrong
+
+displayNextQuestion()
+  // clean the class (correct/wrong)
+  // $('.questions').empty()
+  // $('.questions').html(nextQuestionString)
+
+checkGameEnding()
+  // if questionCount%10 === 0
+      // return true
+    // else 
+      // return false
+
+displaySectionScore()
+  // hide $('.sectionQuestions')
+  // display $('.sectionScore')
+  // $('.scoreCount span').empty()
+  // $('.scoreCount span').text(correctCount)
