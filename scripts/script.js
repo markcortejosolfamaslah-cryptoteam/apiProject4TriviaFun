@@ -3,6 +3,7 @@ const myApp = {};
 // Comment out url array temporarily to work with just one set of data
 myApp.Url = ['https://opentdb.com/api.php?amount=32&category=18&type=boolean', 'https://opentdb.com/api.php?amount=15&category=19&type=boolean']
 myApp.allQuestions = [];//l'array est global, ce qui permet de les utiliser
+myApp.questionCount = 0;
 
 myApp.init = function () {
 
@@ -74,12 +75,20 @@ myApp.createQuestionsArray = (apiResponse) => {
 
 }
 
-
-
+// Display the next question in the myApp.allQuestions array
+myApp.displayNextQuestion = function() {
+	// clear the contents of the .questions giv
+	$('.questions').empty();
+	
+	// build string from the question value from the objects in the allQuestions array
+	const questionString = myApp.allQuestions[myApp.questionCount].question;
+	// display the questionString in the DOM, inside the .questions div
+  $('.questions').html(`<p>${questionString}</p>`);
+}
 
 
 myApp.getUserInput = () => {
-
+	
 }
 
 
