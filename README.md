@@ -20,7 +20,7 @@ firebase
 
 =====JavaScript====
 
-*Initializing Game*
+<!-- *Initializing Game*
 1/ Display title screen and create Document Ready
 2/ Create myApp object
 3/ Create myApp.init() and myApp.setup() to initialize
@@ -47,7 +47,7 @@ firebase
             [a[i], a[j]] = [a[j], a[i]];
         }
         return a;
-      }
+      } -->
 
 8/ *Starting the game* on click 'Start' event listener
     a/ hide title screen and display the play screen
