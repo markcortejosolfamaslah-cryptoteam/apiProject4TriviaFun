@@ -7,6 +7,8 @@ myApp.allQuestions = [];//l'array est global, ce qui permet de les utiliser
 myApp.init = function () {
 
 	myApp.setup();
+	myApp.cleanClass();
+	myApp.startGame();
 
 };
 
@@ -104,4 +106,20 @@ myApp.shuffleArray = function (array) {
 	}
 	// return mutated array
 	return array
+}
+myApp.startGame = () => {
+	$('.play').on('click', function (event) {
+		myApp.cleanClass();
+		//preventDefault event
+		event.preventDefault();
+		// hides $('.playGame')
+		$('.sectionInstructions').css('display', 'none');
+		// displays $('.sectionQuestions')
+		$('.sectionQuestions').css('display', 'block');
+		myApp.correctCount = 0
+	})
+}
+myApp.cleanClass = () => {
+	$('.sectionQuestions').css('display', 'none');
+	$('.sectionScore').css('display', 'none');
 }
