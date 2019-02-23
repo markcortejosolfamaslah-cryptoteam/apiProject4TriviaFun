@@ -80,6 +80,9 @@ myApp.displayNextQuestion = function () {
 	// remove feedback from buttons
 	myApp.cleanClass();
 	
+	// show sectionQuestions
+	$('.sectionQuestions').css('display', 'block');
+
 	// clear the contents of the .questions giv
 	$('.questions').empty();
 
@@ -119,23 +122,26 @@ myApp.checkUserInput = (userChoice) => {
 
 
 // solution from https://stackoverflow.com/questions/6274339/how-can-i-shuffle-an-array
-// Array Shuffle Function (MUTATES PASSED ARRAY)
+// Array Shuffle Function (MUTATES ARRAY)
 // shuffles the contents of an array
 // returns the mutated array
 //attention il faut eviter de l'appeler 2 fois mais comme on fait 2 calls from API because of the for loop
 myApp.shuffleArray = function (array) {
+	// const array = myApp.allQuestions
 	// for loop to iterate through array
 	for (let i = 0; i <= array.length; i++) {
 		// create random number and store in variable
 		const randNum = Math.floor(Math.random() * (array.length + 1));
-		// // create a temporary variable to store current array element
-		// const temp = array[i];
-		// // overwrite current array element with randomized array element
-		// array[i] = array[randNum];
-		// // use temp variable to add back the old current array into the randomized array element
-		// array[randNum] = temp;
-		// use destructuring to exchange the values of the two array positions
-		[array[i], array[randNum]] = [array[randNum], array[i]];
+		// // use destructuring to exchange the values of the two array positions
+		// [array[i], array[randNum]] = [array[randNum], array[i]];
+				
+		// non-destructuring method for exhanging array values
+				// create a temporary variable to store current array element
+				const temp = array[i];
+				// overwrite current array element with randomized array element
+				array[i] = array[randNum];
+				// use temp variable to add back the old current array into the randomized array element
+				array[randNum] = temp;
 
 	}
 	// return mutated array
@@ -161,6 +167,26 @@ myApp.cleanClass = () => {
 	// cleans button feedback styling
 	$('.correct').removeClass('correct');
 	$('.wrong').removeClass('wrong');
-	
+}
 
+// checks if the game ends, but counting how many questions are asked
+myApp.checkGameEnding = function() {
+	if (myApp.questionCount%10 === 0 && myApp.questionCount > 0) {
+		// all 10 questions were answered, end game
+		return true
+	}	else {
+		// continue game
+		return false
+	} 
+}
+
+// reshuffle the questions array once 40 questions are asked
+myApp.reshuffleArray = function() {
+	if (myApp.questionCount === 40) {
+		// shuffle the array
+		myApp.shuffleArray()
+
+		// reset the question count to 0, so the questions can be used again
+		myApp.questionCount = 0
+	}
 }
