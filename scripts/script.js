@@ -77,17 +77,42 @@ myApp.createQuestionsArray = (apiResponse) => {
 
 // Display the next question in the myApp.allQuestions array
 myApp.displayNextQuestion = function () {
+	// remove feedback from buttons
+	myApp.cleanClass();
+	
 	// clear the contents of the .questions giv
 	$('.questions').empty();
 
 	// build string from the question value from the objects in the allQuestions array
 	const questionString = myApp.allQuestions[myApp.questionCount].question;
+	
 	// display the questionString in the DOM, inside the .questions div
 	$('.questions').html(`<p class="textQuestion">${questionString}</p>`);
 }
 
+// checks the users choice with the answer,
+	// increases the questionCount
+		// if choice = answer, apply .correct class to button and increase correctCount
+		// 
+myApp.checkUserInput = (userChoice) => {
+	console.log(userChoice)
+	// get answer from object in allQuestionsArray and store it in the answer variable
+	const answer = myApp.allQuestions[myApp.questionCount].answer
+	console.log(answer)
+	// increase the questionCount
+	myApp.questionCount++
+	
+	if (userChoice === answer) {
+		// increase correctCount
+		myApp.correctCount++
+		// give positive feedback by applying class of .correct to checked button
+		$('input[name=userChoice]:checked').addClass('correct')
+		
+	} else {
+		// give negative feedback by applying class of .wrong to checked button
+		$('input[name=userChoice]:checked').addClass('wrong')
 
-myApp.getUserInput = () => {
+	}
 
 }
 
@@ -129,7 +154,13 @@ myApp.startGame = () => {
 	})
 }
 myApp.cleanClass = () => {
+	// temporary display none
 	$('.sectionQuestions').css('display', 'none');
 	$('.sectionScore').css('display', 'none');
+
+	// cleans button feedback styling
+	$('.correct').removeClass('correct');
+	$('.wrong').removeClass('wrong');
+	
 
 }
