@@ -6,7 +6,7 @@ myApp.allQuestions = [];//l'array est global, ce qui permet de les utiliser
 myApp.questionCount = 0;
 
 myApp.init = function () {
-
+	myApp.startPlay();
 	myApp.setup();
 	myApp.cleanClass();
 	myApp.startGame();
@@ -129,19 +129,19 @@ myApp.checkUserInput = (userChoice) => {
 myApp.shuffleArray = function (array) {
 	// const array = myApp.allQuestions
 	// for loop to iterate through array
-	for (let i = 0; i <= array.length; i++) {
+	for (let i = array.length - 1; i > 0; i--) {
 		// create random number and store in variable
-		const randNum = Math.floor(Math.random() * (array.length + 1));
+		const randNum = Math.floor(Math.random() * (i + 1));
 		// // use destructuring to exchange the values of the two array positions
-		// [array[i], array[randNum]] = [array[randNum], array[i]];
+		[array[i], array[randNum]] = [array[randNum], array[i]];
 
-		// non-destructuring method for exhanging array values
-		// create a temporary variable to store current array element
-		const temp = array[i];
-		// overwrite current array element with randomized array element
-		array[i] = array[randNum];
-		// use temp variable to add back the old current array into the randomized array element
-		array[randNum] = temp;
+		// // non-destructuring method for exhanging array values
+		// // create a temporary variable to store current array element
+		// const temp = array[i];
+		// // overwrite current array element with randomized array element
+		// array[i] = array[randNum];
+		// // use temp variable to add back the old current array into the randomized array element
+		// array[randNum] = temp;
 
 	}
 	// return mutated array
@@ -151,7 +151,6 @@ myApp.startGame = () => {
 
 	myApp.cleanClass();
 	//preventDefault event
-	event.preventDefault();
 	// hides $('.playGame')
 	$('.sectionInstructions').css('display', 'none');
 	// displays $('.sectionQuestions')
@@ -191,11 +190,40 @@ myApp.reshuffleArray = function () {
 	}
 }
 // on Start Game Button
-const startPlay = () => {
+myApp.startPlay = () => {
 	$('.play').on('click', function (event) {
+		event.preventDefault();
 		myApp.startGame();
 		myApp.displayNextQuestion();
-	});
+	})
 }
+
+
+// on True/False Button
+myApp.answerPlay = () => {
+	$('input[name=userChoice]').on('click', function (event) {
+		event.preventDefault();
+		const userChoice = this.val();
+		checkUserInput(userChoice);
+
+		if (checkGameEnding() === false)
+			displayNextQuestion();
+		else {
+			displaySectionScore()
+		}
+	})
+
+}
+// on Play Again Button
+myApp.playAgain = () => {
+	$('.playAgain').on('click', function (event) {
+		event.preventDefault();
+		startGame();
+		reshuffleArray();
+
+	})
+
+}
+
 
 
