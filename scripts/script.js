@@ -4,12 +4,14 @@ const myApp = {};
 myApp.Url = ['https://opentdb.com/api.php?amount=32&category=18&type=boolean', 'https://opentdb.com/api.php?amount=15&category=19&type=boolean']
 myApp.allQuestions = [];//l'array est global, ce qui permet de les utiliser
 myApp.questionCount = 0;
+myApp.correctCount = 0;
 
 myApp.init = function () {
 	myApp.startPlay();
 	myApp.setup();
 	myApp.cleanClass();
-	myApp.startGame();
+	myApp.answerPlay();
+
 
 };
 
@@ -92,6 +94,15 @@ myApp.displayNextQuestion = function () {
 	// display the questionString in the DOM, inside the .questions div
 	$('.questions').html(`<p class="textQuestion">${questionString}</p>`);
 }
+myApp.displaySectionScore = () => {
+
+	// hide $('.sectionQuestions')
+	$('.sectionQuestions').css('display', 'none');
+	// display $('.sectionScore')
+	$('.sectionScore').css('display', 'block');
+	$('.scoreCount span').empty();
+	$('.scoreCount span').text(myApp.correctCount);
+}
 
 // checks the users choice with the answer,
 // increases the questionCount
@@ -150,9 +161,6 @@ myApp.shuffleArray = function (array) {
 myApp.startGame = () => {
 
 	myApp.cleanClass();
-	//preventDefault event
-	// hides $('.playGame')
-	$('.sectionInstructions').css('display', 'none');
 	// displays $('.sectionQuestions')
 	$('.sectionQuestions').css('display', 'block');
 	myApp.correctCount = 0
@@ -191,8 +199,11 @@ myApp.reshuffleArray = function () {
 }
 // on Start Game Button
 myApp.startPlay = () => {
+
 	$('.play').on('click', function (event) {
 		event.preventDefault();
+		// hides $('.playGame')
+		$('.sectionInstructions').css('display', 'none');
 		myApp.startGame();
 		myApp.displayNextQuestion();
 	})
@@ -204,18 +215,20 @@ myApp.answerPlay = () => {
 	$('input[name=userChoice]').on('click', function (event) {
 		event.preventDefault();
 		// save user's click choice as a variable
-		const userChoice = this.val();
-		
-		// check to see if user's choice matches correct answer
-		checkUserInput(userChoice);
+		const userChoice = $('input[name=userChoice]:checked').val();
+		console.log(this);
 
+
+		// check to see if user's choice matches correct answer
+		myApp.checkUserInput(userChoice);
+		console.log("Good One", userChoice)
 		// statement to check if the game is ending
-			// if no, then continue to next question
-			// if yes, then stop game and display score screen
-		if (checkGameEnding() === false)
-			displayNextQuestion();
+		// if no, then continue to next question
+		// if yes, then stop game and display score screen
+		if (myApp.checkGameEnding() === false)
+			myApp.displayNextQuestion();
 		else {
-			displaySectionScore()
+			myApp.displaySectionScore()
 		}
 	})
 
@@ -225,8 +238,8 @@ myApp.answerPlay = () => {
 myApp.playAgain = () => {
 	$('.playAgain').on('click', function (event) {
 		event.preventDefault();
-		startGame();
-		reshuffleArray();
+		myApp.startGame();
+		myApp.reshuffleArray();
 	})
 
 }
