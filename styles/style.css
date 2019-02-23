@@ -144,3 +144,58 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   clip-path: inset(100%);
   clip: rect(0 0 0);
   overflow: hidden; }
+
+body {
+  font-family: 'Lato', sans-serif; }
+
+.wrapper {
+  max-width: 1400px;
+  width: 90%;
+  margin: 0 auto; }
+
+header {
+  margin: 0;
+  padding: 1%;
+  background-color: aliceblue;
+  text-align: center;
+  font-style: italic; }
+  header p {
+    margin: 0; }
+
+.sectionQuestions {
+  margin: 20% 0; }
+  .sectionQuestions .textQuestion {
+    border: 2px solid cadetblue;
+    border-radius: 5px;
+    padding: 2%; }
+  .sectionQuestions .questions {
+    margin: 20% 0; }
+
+.sectionInstructions {
+  text-align: center; }
+  .sectionInstructions h1, .sectionInstructions h2 {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    color: steelblue; }
+  .sectionInstructions p {
+    line-height: 1.6;
+    text-align: left; }
+
+.play {
+  border: 1px solid cadetblue;
+  background: cadetblue;
+  -webkit-box-shadow: 3px 3px;
+  box-shadow: 3px 3px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  padding: 2% 7%; }
+
+footer {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  background-color: black;
+  color: white;
+  font-weight: 300;
+  padding: 1%; }

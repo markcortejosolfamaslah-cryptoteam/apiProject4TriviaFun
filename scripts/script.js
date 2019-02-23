@@ -83,7 +83,7 @@ myApp.displayNextQuestion = function () {
 	// build string from the question value from the objects in the allQuestions array
 	const questionString = myApp.allQuestions[myApp.questionCount].question;
 	// display the questionString in the DOM, inside the .questions div
-	$('.questions').html(`<p>${questionString}</p>`);
+	$('.questions').html(`<p class="textQuestion">${questionString}</p>`);
 }
 
 
