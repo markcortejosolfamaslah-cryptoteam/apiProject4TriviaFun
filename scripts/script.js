@@ -5,6 +5,7 @@ myApp.Url = ['https://opentdb.com/api.php?amount=32&category=18&type=boolean', '
 myApp.allQuestions = [];//l'array est global, ce qui permet de les utiliser
 myApp.questionCount = 0;
 myApp.correctCount = 0;
+myApp.askedCount = 0;
 
 myApp.init = function () {
 	myApp.startPlay();
@@ -109,12 +110,13 @@ myApp.displaySectionScore = () => {
 // if choice = answer, apply .correct class to button and increase correctCount
 // 
 myApp.checkUserInput = (userChoice) => {
-	console.log(userChoice)
+
 	// get answer from object in allQuestionsArray and store it in the answer variable
 	const answer = myApp.allQuestions[myApp.questionCount].answer
-	console.log(answer)
+
 	// increase the questionCount
 	myApp.questionCount++
+	myApp.askedCount++
 
 	if (userChoice === answer) {
 		// increase correctCount
@@ -163,8 +165,9 @@ myApp.startGame = () => {
 	myApp.cleanClass();
 	// displays $('.sectionQuestions')
 	$('.sectionQuestions').css('display', 'block');
-	myApp.correctCount = 0
-
+	myApp.correctCount = 0;
+	myApp.askedCount = 0;
+	myApp.timer();
 }
 myApp.cleanClass = () => {
 	// temporary display none
@@ -178,7 +181,8 @@ myApp.cleanClass = () => {
 
 // checks if the game ends, but counting how many questions are asked
 myApp.checkGameEnding = function () {
-	if (myApp.questionCount % 10 === 0 && myApp.questionCount > 0) {
+	console.log(myApp.askedCount)
+	if (myApp.askedCount === 10) {
 		// all 10 questions were answered, end game
 		return true
 	} else {
@@ -216,12 +220,10 @@ myApp.answerPlay = () => {
 		event.preventDefault();
 		// save user's click choice as a variable
 		const userChoice = $('input[name=userChoice]:checked').val();
-		console.log(this);
 
 
 		// check to see if user's choice matches correct answer
 		myApp.checkUserInput(userChoice);
-		console.log("Good One", userChoice)
 		// statement to check if the game is ending
 		// if no, then continue to next question
 		// if yes, then stop game and display score screen
@@ -244,5 +246,24 @@ myApp.playAgain = () => {
 
 }
 
+// game countdown timer
+myApp.timer = () => {
+	let time = 0;
 
+	for (let i = 60; i > -1; i--) { //to make i decrement from 20 to 0
+		setTimeout((function (s) {
+			return function () {
+				myApp.decount(s);
+			}
+		})(i), time);
 
+		time += 1000;
+	}
+}
+
+myApp.decount = function (i) {
+	$('.timerDecount').text(`${i} + s`);
+	if (i === 0) {
+		myApp.displaySectionScore();
+	}
+};

@@ -49,7 +49,7 @@ firebase
         return a;
       } -->
 
-8/ *Starting the game* on click 'Start' event listener
+<!-- 8/ *Starting the game* on click 'Start' event listener
     a/ hide title screen and display the play screen **startGame()**
     b/ display the first question
         i/ create variable to store the questionCount (starts at 0) and the correctCount (starts at 0)
@@ -74,11 +74,11 @@ firebase
     c/ listen for on click 'PLay again?'
         i/ increase timesPlayed counter by  (call the increaseTimesPlayed function)
         ii/ restart the game
-            1/ hide end screen and display play screen
+            1/ hide end screen and display play screen -->
 
 
 ============CLICK EVENTS=============
-// on Start Game Button
+<!-- // on Start Game Button
   //**startGame()**
   //**displayNextQuestion()**
 
@@ -90,11 +90,11 @@ firebase
 
 // on Play Again Button
   //**startGame()**
-  //**reshuffleArray()**
+  //**reshuffleArray()** -->
 
 =========FUNCTIONS TO MAKE============
 
-startGame()
+<!-- startGame()
   // hides $('.playGame')
   // displays $('.sectionQuestions')
   // myApp.correctCount = 0
@@ -129,5 +129,15 @@ checkGameEnding()
 reshuffleArray()
   // if questionCount === 40 then
       // shuffleArray()
-      // myApp.questionCount = 0
+      // myApp.questionCount = 0 -->
+
+==========STRETCH GOALS=============
+
+add score 
+
+
+The user can pause the game but he will loose point each 5 sec paused
+
+
+firebase
 
