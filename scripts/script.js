@@ -203,9 +203,15 @@ myApp.startPlay = () => {
 myApp.answerPlay = () => {
 	$('input[name=userChoice]').on('click', function (event) {
 		event.preventDefault();
+		// save user's click choice as a variable
 		const userChoice = this.val();
+		
+		// check to see if user's choice matches correct answer
 		checkUserInput(userChoice);
 
+		// statement to check if the game is ending
+			// if no, then continue to next question
+			// if yes, then stop game and display score screen
 		if (checkGameEnding() === false)
 			displayNextQuestion();
 		else {
@@ -214,13 +220,13 @@ myApp.answerPlay = () => {
 	})
 
 }
+
 // on Play Again Button
 myApp.playAgain = () => {
 	$('.playAgain').on('click', function (event) {
 		event.preventDefault();
 		startGame();
 		reshuffleArray();
-
 	})
 
 }
