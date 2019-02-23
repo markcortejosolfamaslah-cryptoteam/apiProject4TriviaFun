@@ -1,0 +1,21 @@
+.sectionInstructions{
+	text-align:center;
+	h1,h2{
+		font-family: 'Poppins', sans-serif;
+		text-align: center;
+		color: steelblue;
+	}
+	p{
+		line-height: 1.6;
+		text-align:left
+		
+	}
+}
+.play{
+	border: 1px solid cadetblue;
+    	background: cadetblue;
+    	box-shadow: 3px 3px;
+    	border-radius: 5px;
+    	text-transform: uppercase;
+    	padding: 2% 7%;
+}

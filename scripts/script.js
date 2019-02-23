@@ -129,7 +129,7 @@ myApp.checkUserInput = (userChoice) => {
 		$('input[name=userChoice]:checked').addClass('wrong')
 
 	}
-	myApp.displayScore();
+
 }
 
 
@@ -165,10 +165,9 @@ myApp.startGame = () => {
 	myApp.cleanClass();
 	// displays $('.sectionQuestions')
 	$('.sectionQuestions').css('display', 'block');
-	$('.scoreDirect').empty();
 	myApp.correctCount = 0;
 	myApp.askedCount = 0;
-	// myApp.timer();
+	myApp.timer();
 }
 myApp.cleanClass = () => {
 	// temporary display none
@@ -229,12 +228,12 @@ myApp.answerPlay = () => {
 		// if no, then continue to next question
 		// if yes, then stop game and display score screen
 		if (myApp.checkGameEnding() === false)
-		myApp.displayNextQuestion();
+			myApp.displayNextQuestion();
 		else {
 			myApp.displaySectionScore()
 		}
 	})
-	
+
 }
 
 // on Play Again Button
@@ -244,62 +243,30 @@ myApp.playAgain = () => {
 		myApp.startGame();
 		myApp.reshuffleArray();
 	})
-	
+
 }
 
-// live display score
-myApp.displayScore = () => {
-	$('.scoreDirect').html(`${myApp.correctCount}/10`);
+// game countdown timer
+myApp.timer = () => {
+	let time = 0;
+
+	for (let i = 60; i > -1; i--) { //to make i decrement from 20 to 0
+		setTimeout((function (s) {
+			return function () {
+				myApp.decount(s);
+			}
+		})(i), time);
+
+		time += 1000;
+	}
 }
 
+myApp.decount = function (i) {
+	$('.timerDecount').text(`${i} + s`);
+	if (i === 0) {
+		myApp.displaySectionScore();
+	}
+	else if (i > 0 && myApp.checkGameEnding() === false) {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// // game countdown timer
-// myApp.timer = () => {
-// 	let time = 0;
-
-// 	for (let i = 60; i > -1; i--) { //to make i decrement from 20 to 0
-		
-// 		let countdown = 
-// 		setTimeout((function (s) {
-// 			return function () {
-// 				myApp.decount(s);
-// 			}
-// 		})(i), time);
-		
-// 		time += 1000;
-		
-// 		if ($('.sectionScore').attr('display','block') == true) {
-// 			clearTimeout(countdown);
-// 			return i = 0;
-// 		}	
-// 	}
-// }
-
-// myApp.decount = function (i) {
-// 	$('.timerDecount').text(`${i} + s`);
-// 	if (i === 0) {
-// 		myApp.displaySectionScore();
-// 	}
-// };
+	}
+};
