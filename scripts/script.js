@@ -79,7 +79,7 @@ myApp.createQuestionsArray = (apiResponse) => {
 myApp.displayNextQuestion = function () {
 	// remove feedback from buttons
 	myApp.cleanClass();
-	
+
 	// show sectionQuestions
 	$('.sectionQuestions').css('display', 'block');
 
@@ -88,15 +88,15 @@ myApp.displayNextQuestion = function () {
 
 	// build string from the question value from the objects in the allQuestions array
 	const questionString = myApp.allQuestions[myApp.questionCount].question;
-	
+
 	// display the questionString in the DOM, inside the .questions div
 	$('.questions').html(`<p class="textQuestion">${questionString}</p>`);
 }
 
 // checks the users choice with the answer,
-	// increases the questionCount
-		// if choice = answer, apply .correct class to button and increase correctCount
-		// 
+// increases the questionCount
+// if choice = answer, apply .correct class to button and increase correctCount
+// 
 myApp.checkUserInput = (userChoice) => {
 	console.log(userChoice)
 	// get answer from object in allQuestionsArray and store it in the answer variable
@@ -104,13 +104,13 @@ myApp.checkUserInput = (userChoice) => {
 	console.log(answer)
 	// increase the questionCount
 	myApp.questionCount++
-	
+
 	if (userChoice === answer) {
 		// increase correctCount
 		myApp.correctCount++
 		// give positive feedback by applying class of .correct to checked button
 		$('input[name=userChoice]:checked').addClass('correct')
-		
+
 	} else {
 		// give negative feedback by applying class of .wrong to checked button
 		$('input[name=userChoice]:checked').addClass('wrong')
@@ -134,30 +134,30 @@ myApp.shuffleArray = function (array) {
 		const randNum = Math.floor(Math.random() * (array.length + 1));
 		// // use destructuring to exchange the values of the two array positions
 		// [array[i], array[randNum]] = [array[randNum], array[i]];
-				
+
 		// non-destructuring method for exhanging array values
-				// create a temporary variable to store current array element
-				const temp = array[i];
-				// overwrite current array element with randomized array element
-				array[i] = array[randNum];
-				// use temp variable to add back the old current array into the randomized array element
-				array[randNum] = temp;
+		// create a temporary variable to store current array element
+		const temp = array[i];
+		// overwrite current array element with randomized array element
+		array[i] = array[randNum];
+		// use temp variable to add back the old current array into the randomized array element
+		array[randNum] = temp;
 
 	}
 	// return mutated array
 	return array
 }
 myApp.startGame = () => {
-	$('.play').on('click', function (event) {
-		myApp.cleanClass();
-		//preventDefault event
-		event.preventDefault();
-		// hides $('.playGame')
-		$('.sectionInstructions').css('display', 'none');
-		// displays $('.sectionQuestions')
-		$('.sectionQuestions').css('display', 'block');
-		myApp.correctCount = 0
-	})
+
+	myApp.cleanClass();
+	//preventDefault event
+	event.preventDefault();
+	// hides $('.playGame')
+	$('.sectionInstructions').css('display', 'none');
+	// displays $('.sectionQuestions')
+	$('.sectionQuestions').css('display', 'block');
+	myApp.correctCount = 0
+
 }
 myApp.cleanClass = () => {
 	// temporary display none
@@ -170,18 +170,18 @@ myApp.cleanClass = () => {
 }
 
 // checks if the game ends, but counting how many questions are asked
-myApp.checkGameEnding = function() {
-	if (myApp.questionCount%10 === 0 && myApp.questionCount > 0) {
+myApp.checkGameEnding = function () {
+	if (myApp.questionCount % 10 === 0 && myApp.questionCount > 0) {
 		// all 10 questions were answered, end game
 		return true
-	}	else {
+	} else {
 		// continue game
 		return false
-	} 
+	}
 }
 
 // reshuffle the questions array once 40 questions are asked
-myApp.reshuffleArray = function() {
+myApp.reshuffleArray = function () {
 	if (myApp.questionCount === 40) {
 		// shuffle the array
 		myApp.shuffleArray()
@@ -190,3 +190,12 @@ myApp.reshuffleArray = function() {
 		myApp.questionCount = 0
 	}
 }
+// on Start Game Button
+const startPlay = () => {
+	$('.play').on('click', function (event) {
+		myApp.startGame();
+		myApp.displayNextQuestion();
+	});
+}
+
+
