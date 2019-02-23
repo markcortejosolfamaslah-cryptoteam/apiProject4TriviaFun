@@ -133,9 +133,6 @@ reshuffleArray()
 
 ==========STRETCH GOALS=============
 
-add score 
-
-
 The user can pause the game but he will loose point each 5 sec paused
 
 
