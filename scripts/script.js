@@ -123,11 +123,13 @@ myApp.checkUserInput = (userChoice) => {
 		// increase correctCount
 		myApp.correctCount++
 		// give positive feedback by applying class of .correct to checked button
-		$('input[name=userChoice]:checked').addClass('correct')
+		$('input[name=userChoice]:checked').addClass('correct');
+		$('.feedback').html(`<p class="feedbackText" id="correctAnswer">Correct!</p>`).css('text-transform', 'uppercase')
 
 	} else {
 		// give negative feedback by applying class of .wrong to checked button
-		$('input[name=userChoice]:checked').addClass('wrong')
+		$('input[name=userChoice]:checked').addClass('wrong');
+		$('.feedback').html(`<p class="feedbackText" id="wrongAnswer">Wrong!</p>`).css('text-transform', 'uppercase')
 
 	}
 
