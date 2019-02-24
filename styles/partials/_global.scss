@@ -14,7 +14,7 @@ body{
 .screen{
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: center;
 	border: 7px $decoLine;
 	border-radius: 5px;
@@ -22,7 +22,9 @@ body{
 	box-shadow: 3px 3px 15px black inset;
 	background-color:white;
 	min-height: 350px;
-
+	p {
+		font-size: 1.3rem;
+	}
 	div {
 		background-color: transparent;
 	}

@@ -164,9 +164,9 @@ body {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
@@ -177,6 +177,8 @@ body {
   box-shadow: 3px 3px 15px black inset;
   background-color: white;
   min-height: 350px; }
+  .screen p {
+    font-size: 1.3rem; }
   .screen div {
     background-color: transparent; }
 
@@ -229,8 +231,6 @@ header {
     margin-top: 25px; }
   .sectionQuestions .questions {
     margin-bottom: 20%; }
-  .sectionQuestions .screen p {
-    font-size: 1.3rem; }
   .sectionQuestions .feedback {
     text-transform: uppercase; }
 

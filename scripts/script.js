@@ -140,7 +140,6 @@ myApp.checkUserInput = (userChoice) => {
 } // FUNCTION ENDS
 
 
-
 // solution from https://stackoverflow.com/questions/6274339/how-can-i-shuffle-an-array
 // Array Shuffle Function (MUTATES ARRAY)
 // shuffles the contents of an array
@@ -177,7 +176,9 @@ myApp.startGame = () => {
 	myApp.correctCount = 0;
 	myApp.askedCount = 0;
 	/* myApp.timer(); */
-}
+} // FUNCTION ENDS
+
+
 myApp.cleanClass = () => {
 	// temporary display none
 	$('.sectionQuestions').css('display', 'none');
