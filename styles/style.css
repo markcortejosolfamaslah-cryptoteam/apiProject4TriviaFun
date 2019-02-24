@@ -157,12 +157,27 @@ body {
   max-height: 80%; }
 
 .screen {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   border: 7px solid grey;
   border-radius: 5px;
   padding: 2% 5%;
   -webkit-box-shadow: 3px 3px 15px black inset;
   box-shadow: 3px 3px 15px black inset;
   background-color: white; }
+  .screen div {
+    background-color: transparent; }
 
 .button {
   border: 1px solid grey;
@@ -174,7 +189,8 @@ body {
   text-align: center;
   padding: 10%;
   -webkit-box-shadow: 3px 3px grey;
-  box-shadow: 3px 3px grey; }
+  box-shadow: 3px 3px grey;
+  margin-top: 5%; }
 
 header {
   margin-bottom: 10%;
@@ -195,12 +211,15 @@ header {
   -ms-flex-direction: column;
   flex-direction: column; }
   .sectionQuestions .questions {
-    height: 30vh; }
+    background-color: transparent;
+    margin-top: 25px; }
   .sectionQuestions .questions {
     margin-bottom: 20%;
     background-color: white; }
   .sectionQuestions .textQuestion {
     font-size: 1.3rem; }
+  .sectionQuestions .feedback {
+    text-transform: uppercase; }
 
 input[type=radio] {
   position: absolute;
