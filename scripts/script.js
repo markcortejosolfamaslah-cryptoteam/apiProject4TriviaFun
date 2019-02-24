@@ -50,22 +50,12 @@ myApp.setup = function () {
 
 
 myApp.requestApi = (url) => {
-	/* let results = []; */
-
-	// for (i = 0; i < myApp.Url.length; i++) { // removed loop to limit to one AJAX call
-	// } // ending tag for loop
-
 	return $.ajax({
 		// only using one url for now for the MVP
 		url: url,
 		method: 'GET',
 		dataType: 'json',
-
 	});
-	/* .then(function (response) {//we use then to make sure that we doing nothing before get the response from Api
-		myApp.createQuestionsArray(response.results)//we call the function here to avoid that it execute the function before getting response, so here because it's where we get the data
-		console.log(myApp.allQuestions)
-	}) */
 
 } // FUNCTION ENDS
 
@@ -133,13 +123,13 @@ myApp.checkUserInput = (userChoice) => {
 		myApp.correctCount++
 		// give positive feedback by applying class of .correct to checked button
 		$('input[name=userChoice]:checked').addClass('correct');
-		$('.feedback').html(`<p class="feedbackText" id="correctAnswer">Correct!</p>`).css('text-transform', 'uppercase')
-
+		$('.feedback').html(`<p class="feedbackText" id="correctAnswer">Correct!</p>`);
+		$('.feedbackText').fadeOut(1000);
 	} else {
 		// give negative feedback by applying class of .wrong to checked button
 		$('input[name=userChoice]:checked').addClass('wrong');
-		$('.feedback').html(`<p class="feedbackText" id="wrongAnswer">Wrong!</p>`).css('text-transform', 'uppercase')
-
+		$('.feedback').html(`<p class="feedbackText" id="wrongAnswer">Wrong!</p>`);
+		$('.feedbackText').fadeOut(1000);
 	}
 
 } // FUNCTION ENDS
@@ -187,10 +177,6 @@ myApp.cleanClass = () => {
 	// temporary display none
 	$('.sectionQuestions').css('display', 'none');
 	$('.sectionScore').css('display', 'none');
-
-	// cleans button feedback styling
-	$('.correct').removeClass('correct');
-	$('.wrong').removeClass('wrong');
 } // FUNCTION ENDS
 
 // checks if the game ends, but counting how many questions are asked

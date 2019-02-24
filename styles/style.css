@@ -164,9 +164,9 @@ body {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
@@ -175,7 +175,8 @@ body {
   padding: 2% 5%;
   -webkit-box-shadow: 3px 3px 15px black inset;
   box-shadow: 3px 3px 15px black inset;
-  background-color: white; }
+  background-color: white;
+  min-height: 350px; }
   .screen div {
     background-color: transparent; }
 
@@ -190,7 +191,17 @@ body {
   padding: 10%;
   -webkit-box-shadow: 3px 3px grey;
   box-shadow: 3px 3px grey;
-  margin-top: 5%; }
+  margin-top: 5%;
+  position: relative;
+  top: 0; }
+
+.button:active {
+  top: 5px;
+  -webkit-box-shadow: 1px 1px grey;
+  box-shadow: 1px 1px grey; }
+
+.screen p {
+  font-size: 1.3rem; }
 
 header {
   margin-bottom: 10%;
@@ -272,7 +283,13 @@ footer {
   .wrapper {
     width: 75%;
     background-color: lightgrey;
-    padding: 10%; } }
+    padding: 10%; }
+  footer {
+    position: relative; } }
+
+@media screen and (min-width: 900px) {
+  .wrapper {
+    padding: 7%; } }
 
 .scoreCount .screen {
   height: 30vh; }
