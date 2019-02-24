@@ -84,13 +84,13 @@ myApp.displayNextQuestion = function () {
 	$('.sectionQuestions').css('display', 'block');
 
 	// clear the contents of the .questions giv
-	$('.questions').empty();
+	$('.textQuestion').html('');
 
 	// build string from the question value from the objects in the allQuestions array
 	const questionString = myApp.allQuestions[myApp.questionCount].question;
 
 	// display the questionString in the DOM, inside the .questions div
-	$('.questions').html(`<p class="textQuestion">${questionString}</p>`);
+	$('.textQuestion').html(`${questionString}`);
 } // FUNCTION ENDS
 
 
@@ -124,12 +124,17 @@ myApp.checkUserInput = (userChoice) => {
 		// give positive feedback by applying class of .correct to checked button
 		$('input[name=userChoice]:checked').addClass('correct');
 		$('.feedback').html(`<p class="feedbackText" id="correctAnswer">Correct!</p>`);
-		$('.feedbackText').fadeOut(1000);
+		setTimeout(function(){
+			$('.feedback').empty()
+		}, 1000)
 	} else {
 		// give negative feedback by applying class of .wrong to checked button
 		$('input[name=userChoice]:checked').addClass('wrong');
 		$('.feedback').html(`<p class="feedbackText" id="wrongAnswer">Wrong!</p>`);
-		$('.feedbackText').fadeOut(1000);
+		setTimeout(function(){
+			$('.feedback').empty()
+		}, 1000)
+		
 	}
 
 } // FUNCTION ENDS
@@ -232,11 +237,14 @@ myApp.answerPlay = () => {
 		// statement to check if the game is ending
 		// if no, then continue to next question
 		// if yes, then stop game and display score screen
-		if (myApp.checkGameEnding() === false)
-			myApp.displayNextQuestion();
-		else {
-			myApp.displaySectionScore()
-		}
+		setTimeout(function(){
+			if (myApp.checkGameEnding() === false) {
+				myApp.displayNextQuestion();
+			}
+			else {
+				myApp.displaySectionScore()
+			}
+		}, 1000)
 	})
 
 }// CLICK EVENT ENDS
