@@ -18,33 +18,30 @@
 		<main>
 			<div class="wrapper">
 				<section class="sectionInstructions">
-					<h1>Truthy / Falsy</h1>
-					<h2>Instructions:</h2>
-					<p>Instruction Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod
-						corrupti
-						expedita ullam harum
-						impedit hic
-						dolore, quis soluta, quas voluptatem consequuntur! Excepturi error fugit
-						aspernatur autem provident saepe,
-						facilis
-						nam?</p>
-					<button class="play startPlay" id="start">play</button>
+					<div class="screen">
+						<h1>Truthy / Falsy</h1>
+						<h2>Instructions:</h2>
+						<p>Test your knowledge about computers and maths, pick True or False
+							choice!</p>
+
+					</div>
+					<button class="play startPlay button" id="start">play</button>
 				</section>
 
 				<section class="sectionQuestions">
 					<div class="timer">
 						<p class="timerDecount"></p>
 					</div>
-					<div class="questions">
+					<div class="questions screen">
 						<!-- DISPLAY QUESTIONS HERE -->
 						<!-- <p class="apiQuestions"></p> -->
 					</div>
 					<div class="buttonChoice">
 
-						<label for="true">True</label>
+						<label for="true" class="true button">True</label>
 						<input type="radio" name="userChoice" value="True" id="true">
 
-						<label for="false">False</label>
+						<label for="false" class="false button">False</label>
 						<input type="radio" name="userChoice" value="False" id="false">
 					</div>
 					<div class="scoreDirect">
@@ -54,9 +51,13 @@
 
 				<section class="sectionScore">
 					<div class="scoreCount">
-						<p>Well done! You've got <span>
-								<!-- DISPLAY SCORE HERE --></span> correct answers</p>
-						<button class="play playAgain" id="reStart">Play Again</button>
+						<div class="screen">
+							<p>Well done! You've got <span>
+									<!-- DISPLAY SCORE HERE --></span> correct
+								answers</p>
+						</div>
+
+						<button class="play playAgain button" id="reStart">Play Again</button>
 					</div>
 				</section>
 

@@ -1,8 +1,29 @@
+$decoLine : solid grey;
 body{
 	font-family: 'Lato', sans-serif;
+	height: 100%;
+    	background: lightgrey;
 }
 .wrapper{
 	max-width: 1400px;
 	width: 90%;
 	margin: 0 auto;
+}
+.screen{
+	border: 7px $decoLine;
+    	border-radius: 5px;
+    	padding: 2%;
+	box-shadow: 3px 3px 15px black inset;
+	background-color:white;
+	}
+.button{
+	border:  1px $decoLine;
+    	border-radius: 5px;
+    	color: white;
+   	text-transform: uppercase;
+    	display: block;
+    	width: 45%;
+    	text-align: center;
+    	padding: 10%;
+    	box-shadow: 3px 3px grey;
 }

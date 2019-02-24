@@ -1,11 +1,26 @@
 .sectionQuestions{
 	    margin: 20% 0;
-	.textQuestion{
-		border: 2px solid cadetblue;
-    		border-radius: 5px;
-    		padding: 2%;
+	.questions{
+		height: 30vh;
 	    }
 	.questions{
 		margin: 20% 0;
+		background-color: white
 	}
+
+}
+input[type=radio]{
+	position: absolute;
+	left: - 10000px;
+}
+
+.buttonChoice{
+	display:flex;
+	justify-content:space-between;
+}
+.true{
+	background-color:green;
+}
+.false{
+	background-color:red;
 }

@@ -167,7 +167,7 @@ myApp.startGame = () => {
 	$('.sectionQuestions').css('display', 'block');
 	myApp.correctCount = 0;
 	myApp.askedCount = 0;
-	myApp.timer();
+	/* myApp.timer(); */
 }
 myApp.cleanClass = () => {
 	// temporary display none
@@ -247,7 +247,7 @@ myApp.playAgain = () => {
 }
 
 // game countdown timer
-myApp.timer = () => {
+/* myApp.timer = () => {
 	let time = 0;
 
 	for (let i = 60; i > -1; i--) { //to make i decrement from 20 to 0
@@ -269,4 +269,4 @@ myApp.decount = function (i) {
 	else if (i > 0 && myApp.checkGameEnding() === false) {
 
 	}
-};
+}; */
