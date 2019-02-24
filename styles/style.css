@@ -226,7 +226,7 @@ header {
     margin-top: 25px; }
   .sectionQuestions .questions {
     margin-bottom: 20%; }
-  .sectionQuestions .textQuestion {
+  .sectionQuestions .screen p {
     font-size: 1.3rem; }
   .sectionQuestions .feedback {
     text-transform: uppercase; }
