@@ -36,5 +36,14 @@ body{
 	text-align: center;
 	padding: 10%;
 	box-shadow: 3px 3px grey;
-	margin-top: 5%
+	margin-top: 5%;
+	position:relative;//to be able to use animation like the button is press, we use position: relativa, top:0 and will change in button:active
+	top:0;
 }
+.button:active{
+	top:5px;
+	box-shadow: 1px 1px grey;
+}
+.screen p {
+		font-size: 1.3rem;
+	}

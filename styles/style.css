@@ -190,7 +190,17 @@ body {
   padding: 10%;
   -webkit-box-shadow: 3px 3px grey;
   box-shadow: 3px 3px grey;
-  margin-top: 5%; }
+  margin-top: 5%;
+  position: relative;
+  top: 0; }
+
+.button:active {
+  top: 5px;
+  -webkit-box-shadow: 1px 1px grey;
+  box-shadow: 1px 1px grey; }
+
+.screen p {
+  font-size: 1.3rem; }
 
 header {
   margin-bottom: 10%;
@@ -215,7 +225,7 @@ header {
     margin-top: 25px; }
   .sectionQuestions .questions {
     margin-bottom: 20%; }
-  .sectionQuestions .textQuestion {
+  .sectionQuestions .screen p {
     font-size: 1.3rem; }
   .sectionQuestions .feedback {
     text-transform: uppercase; }
@@ -272,7 +282,13 @@ footer {
   .wrapper {
     width: 75%;
     background-color: lightgrey;
-    padding: 10%; } }
+    padding: 10%; }
+  footer {
+    position: relative; } }
+
+@media screen and (min-width: 900px) {
+  .wrapper {
+    padding: 7%; } }
 
 .scoreCount .screen {
   height: 30vh; }
