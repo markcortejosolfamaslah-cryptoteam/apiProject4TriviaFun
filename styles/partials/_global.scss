@@ -12,20 +12,29 @@ body{
 	max-height: 80%;
 }
 .screen{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
 	border: 7px $decoLine;
 	border-radius: 5px;
 	padding: 2% 5%;
 	box-shadow: 3px 3px 15px black inset;
 	background-color:white;
+
+	div {
+		background-color: transparent;
 	}
+}
 .button{
 	border:  1px $decoLine;
-    	border-radius: 5px;
-    	color: white;
-   	text-transform: uppercase;
-    	display: block;
-    	width: 45%;
-    	text-align: center;
-    	padding: 10%;
-    	box-shadow: 3px 3px grey;
+	border-radius: 5px;
+	color: white;
+	text-transform: uppercase;
+	display: block;
+	width: 45%;
+	text-align: center;
+	padding: 10%;
+	box-shadow: 3px 3px grey;
+	margin-top: 5%
 }
