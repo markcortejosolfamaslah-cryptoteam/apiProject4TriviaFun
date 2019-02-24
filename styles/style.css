@@ -191,7 +191,7 @@ body {
   padding: 10%;
   -webkit-box-shadow: 3px 3px grey;
   box-shadow: 3px 3px grey;
-  margin-top: 5%;
+  margin-top: 8%;
   position: relative;
   top: 0; }
 
@@ -199,6 +199,9 @@ body {
   top: 5px;
   -webkit-box-shadow: 1px 1px grey;
   box-shadow: 1px 1px grey; }
+
+.button:focus {
+  background: pink; }
 
 .screen p {
   font-size: 1.3rem; }
@@ -280,6 +283,8 @@ footer {
 @media screen and (min-width: 500px) {
   body {
     background-color: black; }
+  header {
+    margin: 0; }
   .wrapper {
     width: 75%;
     background-color: lightgrey;

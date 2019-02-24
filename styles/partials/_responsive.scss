@@ -1,4 +1,5 @@
 @media screen and (min-width:500px) {
+<<<<<<< HEAD
  body {
    background-color: black
  }
@@ -11,6 +12,22 @@
    position:relative;
  }
 
+=======
+  body {
+    background-color: black
+  }
+  header{
+    margin:0;
+  }
+  .wrapper {
+    width: 75%;
+    background-color: lightgrey;
+    padding: 10%;
+  }
+  footer{
+    position:relative;
+  }
+>>>>>>> 16a55438553c934aaee8837ae739926d64107a65
 
 }
 @media screen and (min-width: 900px){

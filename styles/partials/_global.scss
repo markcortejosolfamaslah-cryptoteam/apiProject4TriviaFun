@@ -28,6 +28,7 @@ body{
 	}
 }
 .button{
+<<<<<<< HEAD
     border:  1px $decoLine;
     border-radius: 5px;
     color: white;
@@ -40,10 +41,27 @@ body{
     margin-top: 5%;
     position:relative;//to be able to use animation like the button is press, we use position: relativa, top:0 and will change in button:active
     top:0;
+=======
+	border:  1px $decoLine;
+	border-radius: 5px;
+	color: white;
+	text-transform: uppercase;
+	display: block;
+	width: 45%;
+	text-align: center;
+	padding: 10%;
+	box-shadow: 3px 3px grey;
+	margin-top: 8%;
+	position:relative;//to be able to use animation like the button is press, we use position: relativa, top:0 and will change in button:active
+	top:0;
+>>>>>>> 16a55438553c934aaee8837ae739926d64107a65
 }
 .button:active{
     top:5px;
     box-shadow: 1px 1px grey;
+}
+.button:focus{
+	background: pink;
 }
 .screen p {
         font-size: 1.3rem;
