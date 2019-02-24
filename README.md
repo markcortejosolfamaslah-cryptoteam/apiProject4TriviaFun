@@ -10,10 +10,21 @@ We will create a trivia game!
 7/transition to next question same process for each question
 8/ after 40 questions, stop the game
 
- ====Stretch goal===
- avoid call API each time and make sure avoid repetition of question
+============TO-DO LIST==============
+JS
+  // Feedback
+CSS
+  // Height of the sectionQuestions
+  // Button animations
+ACCESSIBILITY
+  // Focus/Hover
+  // aria-live
+RESPONSIVE
+  // Footer
+  // 
+
+====Stretch goal===
 add timer
-add score 
 The user can pause the game but he will loose point each 5 sec paused
 firebase
 
@@ -130,11 +141,3 @@ reshuffleArray()
   // if questionCount === 40 then
       // shuffleArray()
       // myApp.questionCount = 0 -->
-
-==========STRETCH GOALS=============
-
-The user can pause the game but he will loose point each 5 sec paused
-
-
-firebase
-

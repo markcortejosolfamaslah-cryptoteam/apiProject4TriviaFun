@@ -12,7 +12,7 @@ myApp.init = function () {
 	myApp.setup();
 	myApp.cleanClass();
 	myApp.answerPlay();
-
+	myApp.playAgain();
 
 };
 
@@ -116,6 +116,7 @@ myApp.checkUserInput = (userChoice) => {
 
 	// increase the questionCount
 	myApp.questionCount++
+	console.log("questionCount", myApp.questionCount)
 	myApp.askedCount++
 
 	if (userChoice === answer) {
@@ -140,6 +141,7 @@ myApp.checkUserInput = (userChoice) => {
 // returns the mutated array
 //attention il faut eviter de l'appeler 2 fois mais comme on fait 2 calls from API because of the for loop
 myApp.shuffleArray = function (array) {
+	console.log("The array is shuffling!")
 	// const array = myApp.allQuestions
 	// for loop to iterate through array
 	for (let i = array.length - 1; i > 0; i--) {
@@ -181,7 +183,6 @@ myApp.cleanClass = () => {
 
 // checks if the game ends, but counting how many questions are asked
 myApp.checkGameEnding = function () {
-	console.log(myApp.askedCount)
 	if (myApp.askedCount === 10) {
 		// all 10 questions were answered, end game
 		return true
@@ -194,8 +195,9 @@ myApp.checkGameEnding = function () {
 // reshuffle the questions array once 40 questions are asked
 myApp.reshuffleArray = function () {
 	if (myApp.questionCount === 40) {
+		console.log("It's time to reshuffle")
 		// shuffle the array
-		myApp.shuffleArray()
+		myApp.shuffleArray(myApp.allQuestions)
 
 		// reset the question count to 0, so the questions can be used again
 		myApp.questionCount = 0
@@ -239,6 +241,7 @@ myApp.answerPlay = () => {
 // on Play Again Button
 myApp.playAgain = () => {
 	$('.playAgain').on('click', function (event) {
+		console.log("We're playing again!")
 		event.preventDefault();
 		myApp.startGame();
 		myApp.reshuffleArray();

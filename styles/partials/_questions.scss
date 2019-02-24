@@ -1,13 +1,16 @@
 .sectionQuestions{
-	    margin: 20% 0;
+	display: flex;
+	flex-direction: column;
 	.questions{
 		height: 30vh;
 	    }
 	.questions{
-		margin: 20% 0;
+		margin-bottom: 20%;
 		background-color: white
 	}
-
+	.textQuestion {
+		font-size: 1.3rem;
+	}
 }
 input[type=radio]{
 	position: absolute;
