@@ -13,6 +13,8 @@ We will create a trivia game!
 ============TO-DO LIST==============
 JS
   // Feedback
+    // give feedback for answered question
+    // delay the question from appearing
 CSS
   // Height of the sectionQuestions
   // Button animations

@@ -1,3 +1,4 @@
+// ======================INITIALIZE APP========================
 const myApp = {};
 
 // Comment out url array temporarily to work with just one set of data
@@ -13,9 +14,18 @@ myApp.init = function () {
 	myApp.cleanClass();
 	myApp.answerPlay();
 	myApp.playAgain();
-
+	
 };
 
+
+// ===================DOCUMENT READY===================
+$(function () {
+	myApp.init();
+}) // DOC READY ENDS
+
+
+
+// =========================FUNCTIONS===============================
 
 
 myApp.setup = function () {
@@ -30,17 +40,13 @@ myApp.setup = function () {
 			myApp.createQuestionsArray(response[0].results) //we call the function here to avoid that it execute the function before getting response, so here because it's where we get the data
 
 		})
-		console.log(myApp.allQuestions)
+		
 
+	}).then(function(){
+		myApp.shuffleArray(myApp.allQuestions)
 	})
 
-}
-
-
-$(function () {
-	myApp.init();
-})
-
+} // FUNCTION ENDS
 
 
 myApp.requestApi = (url) => {
@@ -61,7 +67,7 @@ myApp.requestApi = (url) => {
 		console.log(myApp.allQuestions)
 	}) */
 
-}
+} // FUNCTION ENDS
 
 
 // we create a function to create a new array by filter data from api
@@ -76,7 +82,8 @@ myApp.createQuestionsArray = (apiResponse) => {
 
 	myApp.allQuestions = myApp.allQuestions.concat(filtered);//because we have 2 calls from API we need to concat the both to create only one array
 
-}
+} // FUNCTION ENDS
+
 
 // Display the next question in the myApp.allQuestions array
 myApp.displayNextQuestion = function () {
@@ -94,7 +101,9 @@ myApp.displayNextQuestion = function () {
 
 	// display the questionString in the DOM, inside the .questions div
 	$('.questions').html(`<p class="textQuestion">${questionString}</p>`);
-}
+} // FUNCTION ENDS
+
+
 myApp.displaySectionScore = () => {
 
 	// hide $('.sectionQuestions')
@@ -103,12 +112,12 @@ myApp.displaySectionScore = () => {
 	$('.sectionScore').css('display', 'block');
 	$('.scoreCount span').empty();
 	$('.scoreCount span').text(myApp.correctCount);
-}
+} // FUNCTION ENDS
+
 
 // checks the users choice with the answer,
 // increases the questionCount
 // if choice = answer, apply .correct class to button and increase correctCount
-// 
 myApp.checkUserInput = (userChoice) => {
 
 	// get answer from object in allQuestionsArray and store it in the answer variable
@@ -133,7 +142,7 @@ myApp.checkUserInput = (userChoice) => {
 
 	}
 
-}
+} // FUNCTION ENDS
 
 
 
@@ -163,7 +172,8 @@ myApp.shuffleArray = function (array) {
 	}
 	// return mutated array
 	return array
-}
+} // FUNCTION ENDS
+
 myApp.startGame = () => {
 
 	myApp.cleanClass();
@@ -181,7 +191,7 @@ myApp.cleanClass = () => {
 	// cleans button feedback styling
 	$('.correct').removeClass('correct');
 	$('.wrong').removeClass('wrong');
-}
+} // FUNCTION ENDS
 
 // checks if the game ends, but counting how many questions are asked
 myApp.checkGameEnding = function () {
@@ -192,7 +202,7 @@ myApp.checkGameEnding = function () {
 		// continue game
 		return false
 	}
-}
+} // FUNCTION ENDS
 
 // reshuffle the questions array once 40 questions are asked
 myApp.reshuffleArray = function () {
@@ -204,7 +214,12 @@ myApp.reshuffleArray = function () {
 		// reset the question count to 0, so the questions can be used again
 		myApp.questionCount = 0
 	}
-}
+} // FUNCTION ENDS
+
+
+// ================================CLICK EVENTS============================
+
+
 // on Start Game Button
 myApp.startPlay = () => {
 
@@ -215,7 +230,7 @@ myApp.startPlay = () => {
 		myApp.startGame();
 		myApp.displayNextQuestion();
 	})
-}
+} // CLICK EVENT ENDS
 
 
 // on True/False Button
@@ -238,7 +253,7 @@ myApp.answerPlay = () => {
 		}
 	})
 
-}
+}// CLICK EVENT ENDS
 
 // on Play Again Button
 myApp.playAgain = () => {
@@ -249,9 +264,9 @@ myApp.playAgain = () => {
 		myApp.reshuffleArray();
 	})
 
-}
+}// CLICK EVENT ENDS
 
-// game countdown timer
+// ========================GAME TIMER (DEFUNCT)==========================
 /* myApp.timer = () => {
 	let time = 0;
 
